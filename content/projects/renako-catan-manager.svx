@@ -7,7 +7,7 @@ featured = false
 tags = ["typescript", "discord", "catan", "backend", "websocket"]
 
 [image]
-url = "/projects/renako-catan-manager.jpg"
+url = "/projects/renako-catan-manager.webp"
 alt = "renako-catan-manager repository"
 
 [[links]]

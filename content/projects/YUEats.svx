@@ -7,7 +7,7 @@ featured = false
 tags = ["java", "spring", "react", "typescript", "postgres", "food-delivery"]
 
 [image]
-url = "/projects/YUEats.jpg"
+url = "/projects/YUEats.webp"
 alt = "YUEats repository"
 
 [[links]]

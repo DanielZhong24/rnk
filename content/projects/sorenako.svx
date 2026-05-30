@@ -7,7 +7,7 @@ featured = false
 tags = ["typescript", "discord", "catan", "bot", "games"]
 
 [image]
-url = "/projects/sorenako.jpg"
+url = "/projects/sorenako.webp"
 alt = "SORenako repository"
 
 [[links]]

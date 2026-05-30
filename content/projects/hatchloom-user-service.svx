@@ -7,7 +7,7 @@ featured = false
 tags = ["java", "spring", "typescript", "docker", "microservice"]
 
 [image]
-url = "/projects/hatchloom-user-service.jpg"
+url = "/projects/hatchloom-user-service.webp"
 alt = "hatchloom-user-service repository"
 
 [[links]]

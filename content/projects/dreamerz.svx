@@ -7,7 +7,7 @@ featured = false
 tags = ["typescript", "nextjs", "react", "supabase", "ai", "globe"]
 
 [image]
-url = "/projects/dreamerz.jpg"
+url = "/projects/dreamerz.webp"
 alt = "dreamerz repository"
 
 [[links]]

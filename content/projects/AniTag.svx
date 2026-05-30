@@ -7,7 +7,7 @@ featured = true
 tags = ["python", "batchfile", "cli", "anime", "metadata"]
 
 [image]
-url = "/projects/anitag.jpg"
+url = "/projects/anitag.webp"
 alt = "AniTag repository"
 
 [[links]]

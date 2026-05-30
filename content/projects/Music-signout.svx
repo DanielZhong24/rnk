@@ -7,7 +7,7 @@ featured = false
 tags = ["python", "flask", "html", "javascript", "inventory"]
 
 [image]
-url = "/projects/Music-signout.jpg"
+url = "/projects/Music-signout.webp"
 alt = "Music Inventory Sign-Out System repository"
 
 [[links]]

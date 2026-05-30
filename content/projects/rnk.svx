@@ -7,7 +7,7 @@ featured = false
 tags = ["svelte", "sveltekit", "typescript", "portfolio", "blog", "web"]
 
 [image]
-url = "/projects/rnk.jpg"
+url = "/projects/rnk.webp"
 alt = "rnk portfolio repository"
 
 [[links]]

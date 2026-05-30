@@ -57,9 +57,9 @@ if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "null" ]; then
     exit 1
 fi
 # Download the image to output directory
-echo "Downloading image as ${OUTPUT_DIR}/${OUTPUT_NAME}.jpg..."
-if curl -s -o "${OUTPUT_DIR}/${OUTPUT_NAME}.jpg" "$IMAGE_URL"; then
-    echo "Successfully downloaded ${OUTPUT_DIR}/${OUTPUT_NAME}.jpg"
+echo "Downloading image as ${OUTPUT_DIR}/${OUTPUT_NAME}.webp..."
+if curl -s -o "${OUTPUT_DIR}/${OUTPUT_NAME}.webp" "$IMAGE_URL"; then
+    echo "Successfully downloaded ${OUTPUT_DIR}/${OUTPUT_NAME}.webp"
 else
     echo "Error: Failed to download image"
     exit 1
@@ -68,15 +68,15 @@ fi
 # Check if cwebp is available for conversion
 if command -v cwebp &>/dev/null; then
     echo "Converting to WebP format..."
-    if cwebp -q 50 "${OUTPUT_DIR}/${OUTPUT_NAME}.jpg" -o "${OUTPUT_DIR}/${OUTPUT_NAME}.webp" &>/dev/null; then
+    if cwebp -q 50 "${OUTPUT_DIR}/${OUTPUT_NAME}.webp" -o "${OUTPUT_DIR}/${OUTPUT_NAME}.webp" &>/dev/null; then
         echo "Successfully converted to WebP"
         # Remove the JPG file after successful conversion
-        rm -f "${OUTPUT_DIR}/${OUTPUT_NAME}.jpg"
+        rm -f "${OUTPUT_DIR}/${OUTPUT_NAME}.webp"
         echo "Done! WebP file created: ${OUTPUT_DIR}/${OUTPUT_NAME}.webp"
     else
         echo "Warning: WebP conversion failed, keeping JPG file"
     fi
 else
     echo "Warning: cwebp not installed. Install with: brew install webp"
-    echo "Keeping JPG file: ${OUTPUT_DIR}/${OUTPUT_NAME}.jpg"
+    echo "Keeping JPG file: ${OUTPUT_DIR}/${OUTPUT_NAME}.webp"
 fi

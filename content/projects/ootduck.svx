@@ -7,7 +7,7 @@ featured = true
 tags = ["typescript", "python", "react", "flask", "ai", "pwa"]
 
 [image]
-url = "/projects/ootduck.jpg"
+url = "/projects/ootduck.webp"
 alt = "OOTDuck repository"
 
 [[links]]
