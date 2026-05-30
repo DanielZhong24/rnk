@@ -48,54 +48,10 @@ const KATIB_USERNAME = 'DanielZhong24';
 const KV_KEY = `katib:commits:${KATIB_USERNAME}`;
 const TTL_MS = 60 * 60 * 1000; // 1 hour
 
-// Fallback data as provided (v2 shape)
-const FALLBACK_RAW: KatibV2Response = {
-	commits: [
-		{
-			repo: 'JasonLovesDoggo/nyx',
-			additions: 305,
-			deletions: 23,
-			commitUrl:
-				'https://github.com/JasonLovesDoggo/nyx/commit/d73346658330be57a5f34bf2391b5ad32b519341',
-			committedDate: '2025-09-07T05:24:05Z',
-			oid: 'd733466',
-			messageHeadline: 'feat: integrate latest commits fetching and display in project overview',
-			messageBody: ''
-		},
-		{
-			repo: 'JasonLovesDoggo/Katib',
-			additions: 41,
-			deletions: 8,
-			commitUrl:
-				'https://github.com/JasonLovesDoggo/Katib/commit/dca9afc8c1c732d9ccbf9391e77b1fe289e2e05c',
-			committedDate: '2025-09-07T05:19:28Z',
-			oid: 'dca9afc',
-			messageHeadline: 'Merge pull request #4 from JasonLovesDoggo/feature/github-streak-endp…',
-			messageBody: '…oint'
-		},
-		{
-			repo: 'JasonLovesDoggo/Katib',
-			additions: 41,
-			deletions: 8,
-			commitUrl:
-				'https://github.com/JasonLovesDoggo/Katib/commit/e1e1d7df68e7c9e975d35f7394b7509ace215c80',
-			committedDate: '2025-09-07T05:17:01Z',
-			oid: 'e1e1d7d',
-			messageHeadline: 'Add author filtering to GetMostRecentCommit function',
-			messageBody: ''
-		}
-	],
-	languages: [
-		{ size: 776600, name: 'Go', color: '#00ADD8' },
-		{ size: 666900, name: 'HTML', color: '#e34c26' },
-		{ size: 281021, name: 'TypeScript', color: '#3178c6' },
-		{ size: 148482, name: 'Svelte', color: '#ff3e00' },
-		{ size: 99269, name: 'Shell', color: '#89e051' },
-		{ size: 66735, name: 'CSS', color: '#663399' },
-		{ size: 49218, name: 'JavaScript', color: '#f1e05a' },
-		{ size: 9141, name: 'templ', color: '#66D0DD' }
-	],
-	stats: { totalAdditions: 55150, totalDeletions: 23115, totalCommits: 55 }
+const EMPTY_RAW: KatibV2Response = {
+	commits: [],
+	languages: [],
+	stats: { totalAdditions: 0, totalDeletions: 0, totalCommits: 0 }
 };
 
 function processResponse(data: KatibV2Response): CommitData {
@@ -161,7 +117,7 @@ async function refreshCache(kv?: KVNamespace): Promise<CommitData> {
 				`https://katib.jasoncameron.dev/v2/commits/latest?username=${KATIB_USERNAME}&limit=5`,
 				{
 					headers,
-					signal: AbortSignal.timeout(800) // 800ms timeout (lowered from 2500ms)
+					signal: AbortSignal.timeout(2500)
 				}
 			);
 
@@ -181,8 +137,8 @@ async function refreshCache(kv?: KVNamespace): Promise<CommitData> {
 					return cached.data;
 				}
 			}
-			console.log('Using fallback data after fetch failure');
-			return processResponse(FALLBACK_RAW);
+			console.log('Using empty commit data after fetch failure');
+			return processResponse(EMPTY_RAW);
 		}
 	});
 }

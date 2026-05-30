@@ -92,7 +92,7 @@ const Site: Site = {
 	},
 	repo: {
 		url: 'https://github.com/DanielZhong24',
-		commitBaseUrl: 'https://github.com/DanielZhong24/commit/'
+		commitBaseUrl: 'https://github.com/DanielZhong24/nyx/commit/'
 	}
 };
 

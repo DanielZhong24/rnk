@@ -7,7 +7,7 @@ featured = false
 tags = ["javascript", "svelte", "dictionary", "search", "lru"]
 
 [image]
-url = "/projects/akihi.jpg"
+url = "/projects/akihi.webp"
 alt = "akihi repository"
 
 [[links]]

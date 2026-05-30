@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { IconCalendarEvent } from '@tabler/icons-svelte';
 	import type { ProjectPageData } from '$types/projects';
 	import { page } from '$app/state';
@@ -24,7 +25,10 @@
 	<meta property="og:title" content={data.metadata.title} />
 	<meta property="og:description" content={data.metadata.description} />
 	{#if data.metadata.image}
-		<meta property="og:image" content={new URL(data.metadata.image.url, page.url.origin).href} />
+		<meta
+			property="og:image"
+			content={new URL(`${base}${data.metadata.image.url}`, page.url.origin).href}
+		/>
 	{/if}
 	<meta property="og:type" content="article" />
 	<meta name="twitter:title" content={data.metadata.title} />
@@ -32,7 +36,7 @@
 	{#if data.metadata.image}
 		<meta
 			name="twitter:image:src"
-			content={new URL(data.metadata.image.url, page.url.origin).href}
+			content={new URL(`${base}${data.metadata.image.url}`, page.url.origin).href}
 		/>
 	{/if}
 </svelte:head>
@@ -42,7 +46,7 @@
 	{#if data.metadata.image}
 		<div class="mb-8 rounded-lg md:rounded-xl">
 			<img
-				src={data.metadata.image.url}
+				src={`${base}${data.metadata.image.url}`}
 				alt={data.metadata.image.alt}
 				class="aspect-video rounded-lg md:rounded-xl"
 				style:view-transition-name="project-img-{data.slug}"

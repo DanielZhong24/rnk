@@ -1,17 +1,20 @@
 <script lang="ts">
-	import { env as publicEnv } from '$env/dynamic/public';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 	import Site, { Socials } from '$lib/config/common';
 	import { IconClock, IconGitCommit } from '@tabler/icons-svelte';
 	import { persistentWritable } from '$lib/stores/persistance';
 
-	const { value } = $props();
-	const PUBLIC_COMMIT_SHA = publicEnv.PUBLIC_COMMIT_SHA;
+	type Props = {
+		value: string;
+		commitSha?: string;
+	};
+
+	const { value, commitSha }: Props = $props();
 
 	const year = new Date().getFullYear();
-	const shortSha = PUBLIC_COMMIT_SHA ? PUBLIC_COMMIT_SHA.substring(0, 7) : 'dev';
-	const commitLinkUrl = PUBLIC_COMMIT_SHA ? `${Site.repo.commitBaseUrl}${PUBLIC_COMMIT_SHA}` : '#';
+	const shortSha = $derived(commitSha ? commitSha.substring(0, 7) : 'dev');
+	const commitLinkUrl = $derived(commitSha ? `${Site.repo.commitBaseUrl}${commitSha}` : '#');
 
 	let timeOnSite = $state('00:00');
 
@@ -135,13 +138,13 @@
 
 			<span class="text-surface0 hidden sm:inline">-</span>
 
-			{#if PUBLIC_COMMIT_SHA && PUBLIC_COMMIT_SHA !== 'dev'}
+			{#if commitSha && commitSha !== 'dev'}
 				<a
 					href={commitLinkUrl}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-subtext1 hover:text-accent flex items-center gap-x-1 transition-colors duration-200"
-					title="View deployment commit ({PUBLIC_COMMIT_SHA})"
+					title="View deployment commit ({commitSha})"
 				>
 					<IconGitCommit size={18} stroke={1.5} class="flex-shrink-0" />
 					<span>{shortSha}</span>

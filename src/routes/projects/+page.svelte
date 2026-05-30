@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { IconFolders } from '@tabler/icons-svelte';
 	import type { ProjectEntry } from '$types/projects';
 	import { formatDate } from '$utils/date';
@@ -30,7 +31,7 @@
 				>
 					{#if project.metadata.image}
 						<img
-							src={project.metadata.image.url}
+							src={`${base}${project.metadata.image.url}`}
 							alt={project.metadata.image.alt}
 							class="mb-4 aspect-video w-full rounded-md"
 							style:view-transition-name="project-img-{project.slug}"

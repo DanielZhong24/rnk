@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { IconArrowRight, IconStar } from '@tabler/icons-svelte';
 	import type { ProjectMetadata } from '$types/projects';
 	import ProjectTags from '$components/projects/ProjectTags.svelte';
@@ -47,7 +48,7 @@
 					{#if project.metadata.image}
 						<div class="overflow-hidden">
 							<img
-								src={project.metadata.image.url}
+								src={`${base}${project.metadata.image.url}`}
 								alt={project.metadata.image.alt}
 								class="aspect-video w-full transition-transform duration-300 group-hover:scale-105"
 								style:view-transition-name="project-img-{project.slug}"

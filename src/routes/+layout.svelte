@@ -126,5 +126,5 @@
 	<main class="flex-1 px-0 py-8 md:px-5">
 		{@render children?.()}
 	</main>
-	<Footer value={data.footerData.value} />
+	<Footer value={data.footerData.value} commitSha={data.footerData.commitSha} />
 </div>
