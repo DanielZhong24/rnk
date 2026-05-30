@@ -17,5 +17,4 @@ url = "https://github.com/DanielZhong24/SORenako"
 
 # SORenako
 
-SORenako is a Discord bot and companion service for managing Catan games on Colonist.io.
-It focuses on game coordination, bot workflows, and a cleaner experience for running fierce games.
+SORenako is a custom f2p online Catan clone that was built with the purpose to play with friends online with unlimited access to any extension packs, custom maps, and house rules.
