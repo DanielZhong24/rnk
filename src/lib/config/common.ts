@@ -78,8 +78,8 @@ const Site: Site = {
 	},
 	abacus: {
 		instance: 'https://abacus.jasoncameron.dev',
-		namespace: 'jasoncameron',
-		key: 'portfolio'
+		namespace: 'default',
+		key: 'danielzhong.up.railway.app'
 	},
 	out: {
 		github: 'https://github.com/DanielZhong24',
@@ -92,7 +92,7 @@ const Site: Site = {
 	},
 	repo: {
 		url: 'https://github.com/DanielZhong24',
-		commitBaseUrl: 'https://github.com/DanielZhong24/nyx/commit/'
+		commitBaseUrl: 'https://github.com/DanielZhong24/rnk/commit/'
 	}
 };
 
