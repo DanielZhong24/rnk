@@ -49,8 +49,8 @@ export const greyScaleColorNames = [
 export type greyScaleColorName = (typeof greyScaleColorNames)[number];
 
 export const Accent = persistentWritable<AccentColorName>('accent', {
-	defaultValue: 'peach',
-	validValues: accentColorNames,
+	defaultValue: 'pink',
+	validValues: ['pink'],
 	onUpdate: (value, isFirstLoad) => {
 		const apply = () =>
 			document.documentElement.style.setProperty('--current-accent-color', `var(--color-${value})`);
@@ -68,24 +68,12 @@ export type PaletteName = (typeof paletteNames)[number];
 
 function getDefaultPalette(): PaletteName {
 	if (!browser) return 'mocha';
-
-	const stored = localStorage.getItem('palette') as PaletteName | null;
-	if (stored && paletteNames.includes(stored)) return stored;
-	if (window.matchMedia)
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-			// setup an auto update loop
-			if (event.matches) {
-				Palette.set('mocha');
-			} else {
-				Palette.set('latte');
-			}
-		});
-	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'mocha' : 'latte';
+	return 'mocha';
 }
 
 export const Palette = persistentWritable<PaletteName>('palette', {
 	defaultValue: getDefaultPalette,
-	validValues: paletteNames,
+	validValues: ['mocha'],
 	onUpdate: (value, isFirstLoad) => {
 		const apply = () => {
 			document.documentElement.classList.remove(...paletteNames);

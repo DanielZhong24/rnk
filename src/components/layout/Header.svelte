@@ -28,13 +28,6 @@
 				{item.title}
 			</a>
 		{/each}
-		<button
-			onclick={toggleSidebar}
-			class="text-text hover:text-accent cursor-pointer rounded px-3 py-2 text-sm font-medium"
-			aria-label="Open more navigation items"
-		>
-			More...
-		</button>
 	</nav>
 </div>
 

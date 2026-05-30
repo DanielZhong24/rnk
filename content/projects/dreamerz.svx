@@ -1,0 +1,21 @@
+~~~
+title = "dreamerz"
+description = "A social app where users upload dreams, visualize them on a 3D globe, and match with similar dreamers."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["typescript", "nextjs", "react", "supabase", "ai", "globe"]
+
+[image]
+url = "/projects/dreamerz.jpg"
+alt = "dreamerz repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/dreamerz"
+~~~
+
+# dreamerz
+
+dreamerz is a social app that lets users upload dreams, visualize them on an interactive 3D globe, and discover connections.
+It combines AI-generated dream analysis with a world map style visualization and real-time matching.

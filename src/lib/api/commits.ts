@@ -1,5 +1,7 @@
 import { measurePerformance } from '$lib/utils/performance';
 import { getKV, setKV, isCacheStale } from '$lib/utils/edge-cache';
+import { env } from '$env/dynamic/private';
+const GITHUB_TOKEN = env.GITHUB_TOKEN as string | undefined;
 import type { KVNamespace } from '@cloudflare/workers-types';
 export interface CommitLanguage {
 	size: number;
@@ -42,7 +44,8 @@ export interface CommitData {
 	totalCommits: number;
 }
 
-const KV_KEY = 'katib:commits';
+const KATIB_USERNAME = 'DanielZhong24';
+const KV_KEY = `katib:commits:${KATIB_USERNAME}`;
 const TTL_MS = 60 * 60 * 1000; // 1 hour
 
 // Fallback data as provided (v2 shape)
@@ -148,10 +151,16 @@ export async function fetchLatestCommits(kv?: KVNamespace): Promise<CommitData> 
 async function refreshCache(kv?: KVNamespace): Promise<CommitData> {
 	return await measurePerformance('katib-api-fetch', async () => {
 		try {
+			const headers: Record<string, string> = {
+				Accept: 'application/json',
+				'User-Agent': 'nyx-website/1.0'
+			};
+			if (GITHUB_TOKEN) headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+
 			const response = await fetch(
-				'https://katib.jasoncameron.dev/v2/commits/latest?username=JasonLovesDoggo&limit=5',
+				`https://katib.jasoncameron.dev/v2/commits/latest?username=${KATIB_USERNAME}&limit=5`,
 				{
-					headers: { Accept: 'application/json', 'User-Agent': 'nyx-website/1.0' },
+					headers,
 					signal: AbortSignal.timeout(800) // 800ms timeout (lowered from 2500ms)
 				}
 			);

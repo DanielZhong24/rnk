@@ -2,7 +2,6 @@ import {
 	type Icon,
 	IconBrandBluesky,
 	IconBrandGithub,
-	IconBrandInstagram,
 	IconBrandLinkedin,
 	IconBrandX
 } from '@tabler/icons-svelte';
@@ -41,14 +40,14 @@ interface Site {
 }
 
 const Site: Site = {
-	name: 'Jason Cameron',
-	url: dev ? 'http://localhost:5173' : 'https://jasoncameron.dev',
+	name: 'Daniel Zhong',
+	url: dev ? 'http://localhost:5173' : 'https://danielzhong.dev',
 	description:
-		'Jason Cameron - Shipping from Toronto, Canada. I like occasionally building cool shit',
+		'Daniel Zhong - Undergraduate CS student and software developer. Currently @IBM',
 	tags: [
-		'Jason Cameron',
-		'Senior Software Engineer',
-		'Toronto Software Developer',
+		'Daniel Zhong',
+		'Software Engineer',
+		'Software Developer',
 		'Canada',
 		'Golang Developer',
 		'Python Developer',
@@ -65,11 +64,11 @@ const Site: Site = {
 		'Software Architecture'
 	],
 	seo: {
-		author: 'Jason Cameron',
+		author: 'Daniel Zhong',
 		birthDate: '2006-04-19',
 		worksFor: {
-			name: 'Stan',
-			url: 'https://stan.store'
+			name: 'IBM',
+			url: 'https://www.ibm.com'
 		},
 		location: {
 			city: 'Toronto',
@@ -83,17 +82,17 @@ const Site: Site = {
 		key: 'portfolio'
 	},
 	out: {
-		github: 'https://github.com/JasonLovesDoggo',
-		linkedin: 'https://www.linkedin.com/in/jsoncameron/',
-		calcom: 'https://cal.com/jsoncam/15min',
-		wakatime: 'https://wakatime.com/@jasonlovesdoggo',
-		bluesky: 'https://bsky.app/profile/jsn.cam',
-		instagram: 'https://www.instagram.com/jsn.cam/',
-		x: 'https://x.com/tomlparser'
+		github: 'https://github.com/DanielZhong24',
+		linkedin: 'https://www.linkedin.com/in/danielzhong06/',
+		calcom: '',
+		wakatime: '',
+		bluesky: '',
+		instagram: '',
+		x: ''
 	},
 	repo: {
-		url: 'https://github.com/JasonLovesDoggo/nyx',
-		commitBaseUrl: 'https://github.com/JasonLovesDoggo/nyx/commit/'
+		url: 'https://github.com/DanielZhong24',
+		commitBaseUrl: 'https://github.com/DanielZhong24/commit/'
 	}
 };
 
@@ -123,12 +122,6 @@ export const Socials = [
 		label: 'Bluesky',
 		icon: IconBrandBluesky,
 		footer: false
-	},
-	{
-		url: Site.out.instagram,
-		label: 'Instagram',
-		icon: IconBrandInstagram,
-		footer: true
 	},
 	{
 		url: Site.out.wakatime,

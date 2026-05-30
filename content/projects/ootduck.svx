@@ -1,0 +1,25 @@
+~~~
+title = "OOTDuck"
+description = "A lightweight PWA for outfit recommendations with AI-powered image segmentation and classification."
+date = "2026-05-29"
+published = true
+featured = true
+tags = ["typescript", "python", "react", "flask", "ai", "pwa"]
+
+[image]
+url = "/projects/ootduck.jpg"
+alt = "OOTDuck repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/OOTDuck"
+
+[[links]]
+text = "Live Site"
+url = "https://ootduck.com/"
+icon = "external"
+~~~
+# OOTDuck
+
+OOTDuck is a lightweight PWA for outfit recommendations.
+It uses AI-driven image segmentation and classification to suggest personalized outfits from your wardrobe.

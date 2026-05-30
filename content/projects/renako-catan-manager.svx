@@ -1,0 +1,20 @@
+~~~
+title = "renako-catan-manager"
+description = "A Discord bot and companion service for managing fierce Catan games on Colonist.io."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["typescript", "discord", "catan", "backend", "websocket"]
+
+[image]
+url = "/projects/renako-catan-manager.jpg"
+alt = "renako-catan-manager repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/renako-catan-manager"
+~~~
+# renako-catan-manager
+
+renako-catan-manager is a Discord bot and companion service for coordinating Catan games on Colonist.io.
+It combines backend services, bot commands, and supporting tooling for managing ranked matches and game flow.

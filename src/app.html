@@ -12,26 +12,10 @@
 		<script data-theme-init>
 			(() => {
 				try {
-					const safeParse = (raw) => {
-						if (!raw) return null;
-						try {
-							return JSON.parse(raw);
-						} catch {
-							return raw;
-						}
-					};
+					document.documentElement.classList.remove('latte', 'frappe', 'macchiato', 'mocha');
+					document.documentElement.classList.add('mocha');
 
-					const storedPalette = safeParse(localStorage.getItem('palette'));
-					const storedAccent = safeParse(localStorage.getItem('accent'));
-
-					const palette =
-						storedPalette ??
-						(window.matchMedia('(prefers-color-scheme: light)').matches ? 'latte' : 'mocha');
-					if (palette) {
-						document.documentElement.classList.add(palette);
-					}
-
-					const accent = storedAccent ?? 'peach';
+					const accent = 'pink';
 					document.documentElement.style.setProperty(
 						'--current-accent-color',
 						`var(--color-${accent})`

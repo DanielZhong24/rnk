@@ -1,0 +1,21 @@
+~~~
+title = "SORenako"
+description = "A TypeScript Discord bot and companion service for managing fierce Catan games on Colonist.io."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["typescript", "discord", "catan", "bot", "games"]
+
+[image]
+url = "/projects/sorenako.jpg"
+alt = "SORenako repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/SORenako"
+~~~
+
+# SORenako
+
+SORenako is a Discord bot and companion service for managing Catan games on Colonist.io.
+It focuses on game coordination, bot workflows, and a cleaner experience for running fierce games.

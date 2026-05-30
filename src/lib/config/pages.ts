@@ -13,7 +13,6 @@ export const Home = {
 			text: 'LinkedIn',
 			icon: IconBrandLinkedin
 		},
-		{ href: Site.out.x, text: '', icon: IconBrandX }
 	]
 };
 
@@ -31,36 +30,36 @@ export interface ExperienceTimelineItem {
 
 export const experienceTimeline: ExperienceTimelineItem[] = [
 	{
-		company: 'Stan',
-		role: 'Sr Full Stack Engineer',
-		url: 'https://stan.store',
-		logoUrl: '/logos/stan.svg',
-		logoAlt: 'Stan Logo',
-		startDate: '2025-06-01',
+		company: 'IBM',
+		role: 'Software Developer Intern',
+		url: 'https://ibm.com',
+		logoUrl: '/logos/ibm.svg',
+		logoAlt: 'IBM Logo',
+		startDate: '2026-05',
 		details:
-			'Senior Full Stack Engineer at Stan, building AI products that help millions articulate their ideas and share them at scale.',
+			'Intern at IBM, building model evaluation tools for IBM Bob harness to increase agent performance and cut cost on tokens.',
 		logoScale: 1.15
 	},
 	{
-		company: 'StorageBox',
-		role: 'CTO',
-		url: 'https://storagebox.app/',
-		logoUrl: '/logos/storagebox.svg',
-		logoAlt: 'StorageBox Logo',
-		startDate: '2024-09-01',
-		endDate: '2025-06-01',
+		company: 'Flash Coding',
+		role: 'Software Engineer Intern',
+		url: 'https://flashcoding.ca/',
+		logoUrl: '/logos/flash-coding.svg',
+		logoAlt: 'Flash Coding logo',
+		startDate: '2023-08',
+		endDate: '2024-08',
 		details:
-			'As CTO, I led the development of StorageBox, an innovative startup revolutionizing eco-friendly Shopify fulfillment with edge based sustainable warehousing technology and seamless logistics integrations.'
+			'As an intern, I lead a small team of other engineer interns and develop ERP systems for a flooring company in Toronto, serving over 10k customers and contractors.'
 	},
 	{
-		company: 'Hack Canada',
-		role: 'Cofounder',
-		url: 'https://hackcanada.org/',
-		logoUrl: '/logos/hackcanada.svg',
+		company: 'Hatch Coding',
+		role: 'Software Intern',
+		url: 'https://www.rootstrap.com/featured-cases/hatch-coding',
+		logoUrl: '/logos/hatch-coding.svg',
 		logoAlt: 'Hack Canada Logo',
-		startDate: '2024-09-01',
-		endDate: '2025-05-01',
+		startDate: '2023-02',
+		endDate: '2023-07',
 		details:
-			"Co-launched Hack Canada, Hackathons Canada's premier national hackathon series. Organized the inaugural event (February 21–23, 2025), secured partnerships with Google, WarpDev, and Microsoft and more, oversaw all development, workshops, and mentorship sessions for 400+ participants."
+			"Enhanced Dex, an AI teaching assistant, with focused research and feedback."
 	}
 ];

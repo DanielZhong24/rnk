@@ -1,0 +1,20 @@
+~~~
+title = "AniTag"
+description = "A command line tool that renames MKV and MP4 files with proper anime titles and metadata."
+date = "2026-05-29"
+published = true
+featured = true
+tags = ["python", "batchfile", "cli", "anime", "metadata"]
+
+[image]
+url = "/projects/anitag.jpg"
+alt = "AniTag repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/AniTag"
+~~~
+# AniTag
+
+AniTag is a small command line tool for renaming MKV and MP4 files with anime titles and metadata.
+It is built around Python and helper scripts for quickly updating file names and embedded metadata.

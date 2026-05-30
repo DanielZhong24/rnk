@@ -7,19 +7,15 @@ typeset -A PROJECT_REPOS
 # Assign values to the associative array.
 # Note the syntax: key followed by value, separated by spaces within the ()
 PROJECT_REPOS=(
-    "abacus" "https://github.com/jasonlovesdoggo/abacus"
-    "anubis" "https://github.com/TecharoHQ/anubis"
-    "foodle" "https://github.com/JasonLovesDoggo/foodle"
-    "hackathonscanada" "https://github.com/Hackathons-Canada/HackathonsCanada"
-    "mctf" "https://github.com/mcpt/ctf"
-    "metropolis" "https://github.com/wlmac/metropolis"
-    "nyx" "https://github.com/JasonLovesDoggo/nyx"
-    "partneredu" "https://github.com/JasonLovesDoggo/PartnerEdu"
-    "physioquest" "https://github.com/JasonLovesDoggo/jamhacks"
-    "quicture" "https://github.com/JasonLovesDoggo/quicture"
-    "redditvideomakerbot" "https://github.com/elebumm/RedditVideoMakerBot"
-    "scavenger" "https://github.com/wlmac/scavenger"
-    "screentimeshowdown" "https://github.com/JasonLovesDoggo/screentimeshowdown"
-    "toyreduce" "https://github.com/JasonLovesDoggo/toyreduce"
+    "sorenako" "https://github.com/DanielZhong24/SORenako"
+    "anitag" "https://github.com/DanielZhong24/AniTag"
+    "YUEats" "https://github.com/DanielZhong24/YUEats"
+    "Music-signout" "https://github.com/DanielZhong24/Music-signout"
+    "dreamerz" "https://github.com/DanielZhong24/dreamerz"
+    "rnk" "https://github.com/DanielZhong24/rnk"
+    "renako-catan-manager" "https://github.com/DanielZhong24/renako-catan-manager"
+    "hatchloom-user-service" "https://github.com/DanielZhong24/hatchloom-user-service"
+    "ootduck" "https://github.com/DanielZhong24/OOTDuck"
+    "akihi" "https://github.com/DanielZhong24/akihi"
 )
 

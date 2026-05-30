@@ -26,7 +26,7 @@ echo "Fetching image for: $OUTPUT_NAME"
 echo "Repository: $REPO_URL"
 
 # Make API request with all required headers
-API_RESPONSE=$(curl -s 'https://lpf64gdwdb.execute-api.us-east-1.amazonaws.com/?repo='"$REPO_URL"'' \
+API_RESPONSE=$(curl -s --compressed 'https://lpf64gdwdb.execute-api.us-east-1.amazonaws.com/?repo='"$REPO_URL"'' \
   -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:143.0) Gecko/20100101 Firefox/143.0' \
   -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Accept-Language: en-CA,en-US;q=0.7,en;q=0.3' \
@@ -43,28 +43,19 @@ API_RESPONSE=$(curl -s 'https://lpf64gdwdb.execute-api.us-east-1.amazonaws.com/?
   -H 'Cache-Control: no-cache' \
   -H 'TE: trailers')
 
-# Check if API response is valid JSON
-if ! echo "$API_RESPONSE" | jq . >/dev/null 2>&1; then
-    echo "Error: Invalid JSON response from API"
-    echo "Response: $API_RESPONSE"
-    exit 1
+# Extract the 3rd URL using sed by splitting elements on the "," delimiter
+IMAGE_URL=$(echo "$API_RESPONSE" | sed -e 's/[[" ]//g' | awk -F',' '{print $3}')
+
+# If sed/awk fails, let's try a last-resort extract for the first element just to get an image
+if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "null" ]; then
+    IMAGE_URL=$(echo "$API_RESPONSE" | sed -e 's/[[" ]//g' | awk -F',' '{print $1}')
 fi
 
-# Check if we have at least 3 items (index 2 exists)
-ARRAY_LENGTH=$(echo "$API_RESPONSE" | jq 'length')
-if [ "$ARRAY_LENGTH" -lt 3 ]; then
-    echo "Error: API returned only $ARRAY_LENGTH items, but we need at least 3 (index 2)"
+if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "null" ]; then
+    echo "Error: Text-parsing fallback failed to extract URL."
+    echo "Response preview: ${API_RESPONSE:0:120}..."
     exit 1
 fi
-
-# Extract the 3rd image URL (index 2)
-IMAGE_URL=$(echo "$API_RESPONSE" | jq -r '.[2]')
-
-if [ "$IMAGE_URL" = "null" ] || [ -z "$IMAGE_URL" ]; then
-    echo "Error: Could not extract image URL from API response"
-    exit 1
-fi
-
 # Download the image to output directory
 echo "Downloading image as ${OUTPUT_DIR}/${OUTPUT_NAME}.jpg..."
 if curl -s -o "${OUTPUT_DIR}/${OUTPUT_NAME}.jpg" "$IMAGE_URL"; then

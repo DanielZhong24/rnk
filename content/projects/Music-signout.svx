@@ -1,0 +1,21 @@
+~~~
+title = "Music Inventory Sign-Out System"
+description = "A centralized web app for managing instrument sign-outs in a high school music department."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["python", "flask", "html", "javascript", "inventory"]
+
+[image]
+url = "/projects/Music-signout.jpg"
+alt = "Music Inventory Sign-Out System repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/Music-signout"
+~~~
+
+# Music Inventory Sign-Out System
+
+Music Inventory Sign-Out System is a centralized web app for tracking instrument checkouts and returns.
+It replaces manual sign-out sheets with a barcode-ready workflow for school music departments.

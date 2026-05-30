@@ -1,0 +1,26 @@
+~~~
+title = "YUEats"
+description = "A full-stack food delivery platform built with Spring Boot and React for customers, vendors, and couriers."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["java", "spring", "react", "typescript", "postgres", "food-delivery"]
+
+[image]
+url = "/projects/YUEats.jpg"
+alt = "YUEats repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/YUEats"
+
+[[links]]
+text = "Live Site"
+url = "https://yueats-frontend-production.up.railway.app/"
+icon = "external"
+~~~
+
+# YUEats
+
+YUEats is a full-stack food delivery platform built with Spring Boot and React.
+It supports customers, vendors, and couriers with real-time ordering and a modern split frontend/backend architecture.

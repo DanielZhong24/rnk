@@ -1,0 +1,20 @@
+~~~
+title = "hatchloom-user-service"
+description = "A user service microservice for the Hatchloom platform with docs, tests, and Docker support."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["java", "spring", "typescript", "docker", "microservice"]
+
+[image]
+url = "/projects/hatchloom-user-service.jpg"
+alt = "hatchloom-user-service repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/hatchloom-user-service"
+~~~
+# hatchloom-user-service
+
+hatchloom-user-service is a user service microservice for the Hatchloom platform.
+It includes backend APIs, documentation, tests, and Docker-based development and deployment support.

@@ -1,0 +1,21 @@
+~~~
+title = "rnk"
+description = "My copy of Jason's portfolio website, rebuilt as my own portfolio and blog playground."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["svelte", "sveltekit", "typescript", "portfolio", "blog", "web"]
+
+[image]
+url = "/projects/rnk.jpg"
+alt = "rnk portfolio repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/rnk"
+~~~
+# rnk
+
+rnk is my copy of Jason's portfolio website, adapted into my own portfolio and blog playground.
+It keeps the same general idea while layering in my own content, experiments, and design direction.
+

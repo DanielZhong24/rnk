@@ -1,0 +1,25 @@
+~~~
+title = "akihi"
+description = "A lightweight Japanese-English dictionary web app with fast prefix search and cached lookups."
+date = "2026-05-29"
+published = true
+featured = false
+tags = ["javascript", "svelte", "dictionary", "search", "lru"]
+
+[image]
+url = "/projects/akihi.jpg"
+alt = "akihi repository"
+
+[[links]]
+text = "GitHub"
+url = "https://github.com/DanielZhong24/akihi"
+
+[[links]]
+text = "Live Site"
+url = "https://akihi.vercel.app/"
+icon = "external"
+~~~
+# akihi
+
+akihi is a lightweight Japanese-English dictionary web app with fast prefix search and cached lookups.
+It is designed for quick word searches, keyboard-driven navigation, and responsive dictionary exploration.

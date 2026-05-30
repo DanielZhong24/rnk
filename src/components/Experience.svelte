@@ -1,117 +1,47 @@
 <script lang="ts">
-	import { Popover } from 'bits-ui';
-	import { experienceTimeline, type ExperienceTimelineItem } from '$lib/config/pages.js';
-	import { IconX, IconExternalLink, IconCalendarEvent } from '@tabler/icons-svelte';
-	import { formatDate } from '$lib/utils/date';
+import { experienceTimeline } from '$lib/config/pages';
+import type { ExperienceTimelineItem } from '$lib/config/pages';
 
-	function isPast(item: ExperienceTimelineItem): boolean {
-		return !!item.endDate;
+function fmt(dateStr?: string) {
+	if (!dateStr) return 'Present';
+	// keep it robust for already-formatted strings
+	try {
+		const d = new Date(dateStr);
+		if (isNaN(d.getTime())) return dateStr;
+		return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+	} catch (e) {
+		return dateStr;
 	}
+}
 </script>
 
+
 <section class="px-4 md:px-0">
-	<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:justify-start">
-		{#each experienceTimeline as item, i (item.company)}
-			{@const past = isPast(item)}
-
-			<Popover.Root>
-				<Popover.Trigger>
-					{#snippet child({ props })}
-						<button
-							{...props}
-							class="focus-visible:ring-accent group focus-visible:ring-offset-base flex cursor-pointer items-center gap-2 rounded text-sm transition-opacity duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 {past
-								? 'opacity-60 hover:opacity-80 focus-visible:opacity-100'
-								: 'hover:opacity-80 focus-visible:opacity-100'}"
-							aria-label={`View details for ${item.role} at ${item.company}`}
-						>
-							<img
-								src={item.logoUrl}
-								alt={item.logoAlt}
-								class="flex max-h-8 min-h-7 w-auto min-w-6 grow-9 object-contain"
-								style={item.logoScale ? `transform: scale(${item.logoScale})` : ''}
-							/>
-							<span class="text-subtext1 group-hover:text-text group-focus-visible:text-text">
-								<span class="whitespace-nowrap">
-									<span class={past ? '' : 'text-text font-medium'}>{item.company}</span>
-									{#if past}
-										<span class="text-overlay0 text-xs"> (Past)</span>
-									{/if}
-								</span>
-							</span>
-						</button>
-					{/snippet}
-				</Popover.Trigger>
-
-				<Popover.Portal>
-					<Popover.Content
-						class="border-surface0 bg-mantle text-text shadow-popover data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-30 max-w-xs rounded-xl border p-4"
-						sideOffset={8}
-						side="top"
-						align="center"
-					>
-						<div class="mb-3 flex items-start justify-between">
-							<div class="flex items-center gap-3">
-								<img
-									src={item.logoUrl}
-									alt={item.logoAlt}
-									class="h-10 w-auto max-w-[4rem] flex-shrink-0 rounded-md object-contain p-1"
-									style={item.logoScale ? `transform: scale(${item.logoScale})` : ''}
-								/>
-								<div>
-									<h4 class="text-text group-hover:text-accent font-semibold transition-colors">
-										{item.company}
-									</h4>
-									<p class="text-subtext0 text-sm">{item.role}</p>
-								</div>
-							</div>
-							<Popover.Close
-								class="text-subtext1 hover:text-accent -m-1 cursor-pointer rounded p-1 transition-colors"
-								aria-label="Close details"
-							>
-								<IconX size={18} />
-							</Popover.Close>
-						</div>
-
-						{#if item.details}
-							<p class="text-subtext1 mb-3 text-sm">{item.details}</p>
-						{/if}
-
-						<div class="text-overlay0 mb-3 flex items-center gap-1.5 text-xs">
-							<IconCalendarEvent size={14} class="flex-shrink-0" />
-
-							<span>{formatDate(item.startDate, { yearMonthOnly: true })}</span>
-							<span>-</span>
-							{#if item.endDate}
-								{#if new Date(item.endDate) > new Date()}
-									<span>{formatDate(item.endDate, { yearMonthOnly: true })}</span>
-								{:else}
-									<span>{formatDate(item.endDate, { yearMonthOnly: true })}</span>
-								{/if}
-							{:else if new Date(item.startDate) > new Date()}
-								<span class="text-accent">Incoming</span>
+	<div class="border-surface0 bg-base space-y-5 rounded-xl border p-4 shadow-lg md:p-6">
+		<h2 class="text-text text-sm font-semibold">Experience</h2>
+		<div class="mt-4 space-y-6">
+			{#each experienceTimeline as item (item.company + item.role)}
+				<div class="flex items-start space-x-4">
+					<div class="flex flex-col items-center">
+						<div class="w-12 h-12 rounded-full overflow-hidden bg-surface1 flex items-center justify-center">
+							{#if item.logoUrl}
+								<img src={item.logoUrl} alt={item.logoAlt} class="object-contain" style="width:48px;height:48px;transform:scale({item.logoScale ?? 1});" />
 							{:else}
-								<span>Present</span>
+								<div class="text-sm text-subtext1">{item.company[0]}</div>
 							{/if}
 						</div>
+						<div class="w-px bg-surface2 h-full mt-2"></div>
+					</div>
 
-						<a
-							href={item.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-accent hover:text-accent/80 inline-flex items-center gap-1 text-sm transition-colors"
-						>
-							<span>Visit Website</span>
-							<IconExternalLink size={16} stroke={1.5} />
-						</a>
-
-						<Popover.Arrow class="text-accent" width={12} height={6} />
-					</Popover.Content>
-				</Popover.Portal>
-			</Popover.Root>
-
-			{#if i < experienceTimeline.length - 1}
-				<span class="text-accent hidden md:inline">/</span>
-			{/if}
-		{/each}
+					<div class="flex-1">
+						<a href={item.url} target="_blank" rel="noopener noreferrer" class="text-text font-medium hover:underline">{item.role} <span class="text-subtext1">— {item.company}</span></a>
+						<div class="text-subtext0 text-xs mt-1">{fmt(item.startDate)} — {item.endDate ? fmt(item.endDate) : 'Present'}</div>
+						{#if item.details}
+							<p class="text-subtext0 mt-2 text-sm">{item.details}</p>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
 	</div>
 </section>
